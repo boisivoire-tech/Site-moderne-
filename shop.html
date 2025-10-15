@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Boutique — Bois Ivoire</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <header class="bg-amber-900 text-white">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-semibold">Bois Ivoire</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Accueil</a>
+        <a href="shop.html" class="hover:underline">Boutique</a>
+        <a href="README.txt" class="hover:underline">Guide</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-bold text-amber-900 mb-6">Notre catalogue</h2>
+
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6" id="product-grid">
+      <!-- Products injected here -->
+    </div>
+
+    <aside class="fixed right-4 bottom-4 w-80 bg-white rounded-lg shadow p-4">
+      <h3 class="font-semibold">Panier</h3>
+      <ul id="cart-list" class="mt-2 space-y-2 max-h-48 overflow-auto"></ul>
+      <div class="mt-4 flex justify-between items-center">
+        <div><strong>Total:</strong> <span id="cart-total">0</span> FCFA</div>
+        <button id="checkout-btn" class="bg-amber-900 text-white px-3 py-2 rounded">Commander</button>
+      </div>
+    </aside>
+
+    <!-- Checkout modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+      <div class="bg-white max-w-xl w-full rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-amber-900">Passer la commande</h3>
+        <p class="text-sm mt-2">Choisissez un mode de paiement :</p>
+        <div class="mt-4 space-y-3">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="pay" value="stripe" checked>
+            <span>Carte (Stripe)</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="pay" value="paypal">
+            <span>PayPal</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="pay" value="momo">
+            <span>Orange Money / MTN MoMo</span>
+          </label>
+        </div>
+
+        <div id="momo-form" class="mt-4 hidden">
+          <label class="block text-sm">Numéro mobile (format +225...)<input id="momo-phone" class="w-full border p-2 mt-1 rounded" placeholder="+225XXXXXXXX"></label>
+        </div>
+
+        <div class="mt-4 flex justify-end space-x-2">
+          <button id="close-checkout" class="px-3 py-2 rounded border">Annuler</button>
+          <button id="confirm-checkout" class="px-3 py-2 rounded bg-amber-900 text-white">Payer / Finaliser</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
